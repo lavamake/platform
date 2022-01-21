@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Facades\Aes;
 use App\Facades\ApiToken;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class TestTask extends Command
@@ -39,9 +40,6 @@ class TestTask extends Command
      */
     public function handle()
     {
-        $encode = Aes::encode('123123123');
-        $this->info($encode);
-        $decode = Aes::decode($encode);
-        $this->info($decode);
+        $this->info(Carbon::now()->toDateTimeString());
     }
 }

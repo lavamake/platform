@@ -31,4 +31,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ($route) {
     })->name('dashboard');
     $route->get('/app', [AppController::class,'index'])->name('platform.app.index');
     $route->get('/app/create', [AppController::class,'create'])->name('platform.app.create');
+    $route->get('/app/show/{app_id}', [AppController::class,'show'])->name('platform.app.show');
 });

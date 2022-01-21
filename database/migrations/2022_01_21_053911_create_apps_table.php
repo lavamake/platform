@@ -15,6 +15,7 @@ class CreateAppsTable extends Migration
     {
         Schema::create('apps', function (Blueprint $table) {
             $table->id();
+            $table->string("unicode", 6)->unique()->nullable()->default(null);
             $table->string("name");
             $table->foreignId("user_id");
             $table->string("app_key", 18)->unique();

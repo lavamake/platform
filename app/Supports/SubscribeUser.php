@@ -2,6 +2,8 @@
 
 namespace App\Supports;
 
+use App\Models\App;
+use App\Models\SubscribeType;
 use Carbon\Carbon;
 
 trait SubscribeUser
@@ -25,5 +27,20 @@ trait SubscribeUser
     public function hasSubscribe()
     {
         return (bool)$this->subscribe_type_id;
+    }
+
+    public function subscribe_type()
+    {
+        return $this->belongsTo(SubscribeType::class);
+    }
+
+    public function apps()
+    {
+        return $this->hasMany(App::class);
+    }
+
+    public function app_number()
+    {
+        return $this->apps()->count();
     }
 }

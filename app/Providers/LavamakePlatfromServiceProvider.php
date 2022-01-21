@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use App\Actions\App\GenerateANewApp;
 use App\Constracts\ApiTokenInterface;
+use App\Constracts\LavamakeApp;
+use App\Models\App;
+use App\Observers\AppObserver;
 use App\Supports\AesSupport;
 use App\Supports\ApiTokenSupport;
 use App\Supports\LavamakePlatform;
@@ -18,13 +21,19 @@ class LavamakePlatfromServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->alias('lavamake.token', ApiTokenInterface::class);
+        App::observe(AppObserver::class);
+        $this->registerAlias();
         $this->app->singleton('lavamake.aes', function () {
             return new AesSupport();
         });
-        $this->app->singleton('lavamake.token.api', function () {
+        $this->app->singleton('lavamake.token.api', function ($app) {
             return new ApiTokenSupport();
         });
+    }
+
+    public function registerAlias()
+    {
+        $this->app->alias('lavamake.token', ApiTokenInterface::class);
     }
 
     /**

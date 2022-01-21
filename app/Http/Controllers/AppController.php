@@ -14,8 +14,7 @@ class AppController extends Controller
     public function index(Request $request)
     {
         return Jetstream::inertia()->render($request, 'App/Index', [
-            'apps' => App::all(),
-            'app' => ApiToken::generate(),
+            'apps' => App::with('user')->paginate(24)
         ]);
     }
 
@@ -27,5 +26,10 @@ class AppController extends Controller
     public function store(Request $request)
     {
         app(GenerateANewApp::class)->generate($request->user(), 'aaa');
+    }
+
+    public function show(Request $request, $app_id)
+    {
+        return Jetstream::inertia()->render($request,'App/Show', ['app_id' => $app_id]);
     }
 }
