@@ -11,23 +11,23 @@ class ApiTokenSupport implements ApiTokenInterface
 {
     public static function generate()
     {
-        $api_key = Str::random(18);
-//        if (self::exists($api_key)){
-//            return self::generate();
-//        }
+        $app_key = Str::random(18);
+        if (self::exists($app_key)){
+            return self::generate();
+        }
 
         return [
-            'api_key' => $api_key,
-            'api_secret' => Str::random(64)
+            'app_key' => $app_key,
+            'app_secret' => Str::random(32)
         ];
     }
 
-    public static function exists($api_key)
+    public static function exists($app_key)
     {
-        return App::where(['api_key' => $api_key])->exists();
+        return App::where(['app_key' => $app_key])->exists();
     }
 
-    public static function check($api_key, $api_secret)
+    public static function check($app_key, $app_secret)
     {
 
     }

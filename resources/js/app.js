@@ -5,7 +5,7 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
 import ArcoVue from '@arco-design/web-vue';
 import ArcoVueIcon from '@arco-design/web-vue/es/icon';
-import '@arco-design/web-vue/dist/arco.css';
+import '@arco-themes/vue-lavamake/css/arco.css';
 
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';

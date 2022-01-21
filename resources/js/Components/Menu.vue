@@ -1,37 +1,33 @@
 <template>
     <a-menu
         :style="{ width: '200px', height: '100%' }"
-        :default-open-keys="['0']"
-        :default-selected-keys="['0_1']"
+        :default-open-keys="['2']"
+        :default-selected-keys="['2']"
         show-collapse-button
     >
-        <a-menu-item key="0_0_0" data-obj="1">Menu 1</a-menu-item>
+        <a-menu-item key="0_0_0" data-obj="1">
+          <template #icon><icon-dashboard /></template>
+          控制面板
+        </a-menu-item>
         <a-sub-menu key="0">
-            <template #icon><icon-apps></icon-apps></template>
-            <template #title>Navigation 1</template>
-            <a-menu-item key="0_0">Menu 1</a-menu-item>
-            <a-menu-item key="0_1">Menu 2</a-menu-item>
-            <a-menu-item key="0_2" disabled>Menu 3</a-menu-item>
+            <template #icon><icon-user /></template>
+            <template #title>用户管理</template>
+            <a-menu-item key="0_0">未订阅用户</a-menu-item>
+            <a-menu-item key="0_1">基础订阅</a-menu-item>
+            <a-menu-item key="0_2">白银订阅</a-menu-item>
+            <a-menu-item key="0_3">黄金订阅</a-menu-item>
         </a-sub-menu>
         <a-sub-menu key="1">
-            <template #icon><icon-bug></icon-bug></template>
-            <template #title>Navigation 2</template>
-            <a-menu-item key="1_0">Menu 1</a-menu-item>
-            <a-menu-item key="1_1">Menu 2</a-menu-item>
+            <template #icon><icon-file /></template>
+            <template #title>内容管理</template>
+            <a-menu-item key="1_0">文章列表</a-menu-item>
+            <a-menu-item key="1_1">菜单列表</a-menu-item>
             <a-menu-item key="1_2">Menu 3</a-menu-item>
         </a-sub-menu>
-        <a-sub-menu key="2">
-            <template #icon><icon-bulb></icon-bulb></template>
-            <template #title>Navigation 3</template>
-            <a-menu-item-group title="Menu Group 1">
-                <a-menu-item key="2_0">Menu 1</a-menu-item>
-                <a-menu-item key="2_1">Menu 2</a-menu-item>
-            </a-menu-item-group>
-            <a-menu-item-group title="Menu Group 2">
-                <a-menu-item key="2_2">Menu 3</a-menu-item>
-                <a-menu-item key="2_3">Menu 4</a-menu-item>
-            </a-menu-item-group>
-        </a-sub-menu>
+      <a-menu-item key="2" data-obj="1">
+        <template #icon><icon-bulb /></template>
+        站点服务
+      </a-menu-item>
     </a-menu>
 </template>
 

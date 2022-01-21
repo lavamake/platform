@@ -1,11 +1,11 @@
 <template>
     <div class="bg-gray-100">
-        <a-layout>
+        <a-layout class="min-h-screen">
             <a-layout-header>
                 <Head />
             </a-layout-header>
             <a-layout>
-                <a-layout-sider>
+                <a-layout-sider style="width: auto;">
                     <Menu />
                 </a-layout-sider>
                 <a-layout-content>

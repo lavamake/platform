@@ -29,5 +29,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function ($route) {
     $route->get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-    $route->get('/app', [AppController::class, 'store'])->name('platform.app');
+    $route->get('/app', [AppController::class,'index'])->name('platform.app.index');
+    $route->get('/app/create', [AppController::class,'create'])->name('platform.app.create');
 });
